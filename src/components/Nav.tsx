@@ -1,48 +1,63 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEarthAsia } from '@fortawesome/free-solid-svg-icons';
+import { faEarthAsia, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { handleToggle } from '../store/NightDay';
+import * as S from './styles/Nav.styled';
+
+interface ToggleValue {
+  toggle: { toggle: boolean };
+}
 
 const Nav = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const nighMode = useSelector((state: ToggleValue) => state.toggle.toggle);
+
   const changePage = (path: string) => {
     navigate(path);
   };
 
-  const changeToggle = () => {
+  const changeToggleStatus = () => {
     dispatch(handleToggle());
   };
+
   return (
-    <NavWrapper>
-      <NavTitle
+    <S.NavWrapper>
+      <S.NavTitle
         onClick={() => {
           changePage('/');
         }}
       >
-        <EarthIcon icon={faEarthAsia} />
+        <S.EarthIcon icon={faEarthAsia} />
         WELCOME
-      </NavTitle>
-      <MenuContents>
+      </S.NavTitle>
+      <S.MenuContents>
         {NAV_CONTENTS.map(({ id, title, path }) => (
-          <Menu
+          <S.Menu
             key={id}
             onClick={() => {
               changePage(path);
             }}
           >
             {title}
-          </Menu>
+          </S.Menu>
         ))}
-      </MenuContents>
-      <NightDayHandlerWrapper>
-        <NightDayHandler type="checkbox" onClick={changeToggle} />
-      </NightDayHandlerWrapper>
-    </NavWrapper>
+      </S.MenuContents>
+      <S.NightDayHandlerWrapper>
+        <S.NightDayHandler
+          type="button"
+          onClick={() => {
+            changeToggleStatus();
+          }}
+        >
+          <S.ButtonContainer>
+            <S.DayButton icon={faSun} $nightMode={nighMode} />
+            <S.NightButton icon={faMoon} $nightMode={nighMode} />
+          </S.ButtonContainer>
+        </S.NightDayHandler>
+      </S.NightDayHandlerWrapper>
+    </S.NavWrapper>
   );
 };
 
@@ -53,51 +68,3 @@ const NAV_CONTENTS = [
   { id: 2, title: 'Gallery', path: '/gallery' },
   { id: 3, title: 'Portfolio', path: '/portfolio' },
 ];
-const NavWrapper = styled.nav`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  padding: 15px;
-  background-color: #455964;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-`;
-
-const NavTitle = styled.div`
-  font-size: 24px;
-  cursor: pointer;
-`;
-
-const EarthIcon = styled(FontAwesomeIcon)`
-  margin: 0 10px;
-  color: #9ae6c3;
-`;
-
-const MenuContents = styled.ul`
-  display: flex;
-`;
-
-const Menu = styled.li`
-  cursor: pointer;
-  font-size: 20px;
-  transition: all 0.2s ease;
-  padding: 10px;
-  & + & {
-    margin-left: 30px;
-  }
-
-  &:hover {
-    border-radius: 8px;
-    background-color: green;
-  }
-`;
-
-const NightDayHandlerWrapper = styled.div``;
-
-const NightDayHandler = styled.input`
-  cursor: pointer;
-`;
