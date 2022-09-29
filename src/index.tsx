@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reportWebVitals from './reportWebVitals';
 import Router from './Router';
-import GlobalStyle from './styles/GlobalStyle';
 import rootReducer from './store/index';
 
 const store = configureStore({ reducer: rootReducer });
@@ -17,7 +16,6 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <GlobalStyle />
         <Router />
       </Provider>
     </BrowserRouter>
