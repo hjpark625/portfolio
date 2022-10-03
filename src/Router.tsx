@@ -6,6 +6,7 @@ import Gallery from './pages/Gallery/Gallery';
 import Home from './pages/Home/Home';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 import GlobalStyle from './styles/GlobalStyle';
 import { IToggle } from './store/NightDay/index';
 import { lightTheme } from './styles/light';
@@ -26,6 +27,7 @@ const Router = () => {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
+      <Footer />
     </ThemeProvider>
   );
 };
