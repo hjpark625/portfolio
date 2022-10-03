@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const NavWrapper = styled.nav`
+const NavWrapper = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,23 +13,24 @@ export const NavWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
   color: white;
+  z-index: 10;
 `;
 
-export const NavTitle = styled.div`
+const NavTitle = styled.div`
   font-size: 26px;
   cursor: pointer;
 `;
 
-export const EarthIcon = styled(FontAwesomeIcon)`
+const EarthIcon = styled(FontAwesomeIcon)`
   margin: 0 10px;
   color: #9ae6c3;
 `;
 
-export const MenuContents = styled.ul`
+const MenuContents = styled.ul`
   display: flex;
 `;
 
-export const Menu = styled.li`
+const Menu = styled.li`
   cursor: pointer;
   font-size: 26px;
   transition: background 0.2s ease;
@@ -44,17 +45,17 @@ export const Menu = styled.li`
   }
 `;
 
-export const NightDayHandlerWrapper = styled.div`
+const NightDayHandlerWrapper = styled.div`
   position: relative;
 `;
 
-export const NightDayHandler = styled.button`
+const NightDayHandler = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
 `;
 
-export const ButtonContainer = styled.div`
+const ButtonContainer = styled.div`
   position: relative;
   width: 26px;
   height: 26px;
@@ -67,7 +68,7 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-export const NightButton = styled(FontAwesomeIcon)<{ $nightMode: boolean }>`
+const NightButton = styled(FontAwesomeIcon)<{ $nightMode: boolean }>`
   bottom: 17%;
   right: 24%;
   position: absolute;
@@ -79,7 +80,7 @@ export const NightButton = styled(FontAwesomeIcon)<{ $nightMode: boolean }>`
   font-size: 26px;
 `;
 
-export const DayButton = styled(FontAwesomeIcon)<{ $nightMode: boolean }>`
+const DayButton = styled(FontAwesomeIcon)<{ $nightMode: boolean }>`
   bottom: 17%;
   right: 17%;
   position: absolute;
@@ -90,3 +91,16 @@ export const DayButton = styled(FontAwesomeIcon)<{ $nightMode: boolean }>`
   opacity: ${({ $nightMode }) => ($nightMode ? '0' : '1')};
   font-size: 26px;
 `;
+
+export {
+  NavWrapper,
+  NavTitle,
+  EarthIcon,
+  MenuContents,
+  Menu,
+  NightDayHandlerWrapper,
+  NightDayHandler,
+  ButtonContainer,
+  NightButton,
+  DayButton,
+};
