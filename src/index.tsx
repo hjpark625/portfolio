@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import reportWebVitals from './reportWebVitals';
 import Router from './Router';
-import GlobalStyle from './styles/GlobalStyle';
+import rootReducer from './store/index';
+
+const store = configureStore({ reducer: rootReducer });
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -11,8 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <GlobalStyle />
-      <Router />
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
 );

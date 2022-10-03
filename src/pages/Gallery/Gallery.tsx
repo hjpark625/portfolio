@@ -1,7 +1,13 @@
 import React from 'react';
+import PageWrapper from '../../components/PageWrapper';
+import UnderConstructing from '../../components/UnderConstructing';
 
 const Gallery = () => {
-  return <div>Gallery</div>;
+  return (
+    <PageWrapper>
+      <UnderConstructing />
+    </PageWrapper>
+  );
 };
 
 export default Gallery;
