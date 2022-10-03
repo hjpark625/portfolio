@@ -33,14 +33,14 @@ export const Menu = styled.li`
   cursor: pointer;
   font-size: 26px;
   transition: background 0.2s ease;
+  border-radius: 8px;
   padding: 10px;
   & + & {
     margin-left: 30px;
   }
-
-  &:hover {
+  :hover {
     border-radius: 8px;
-    background-color: green;
+    background-color: #476778;
   }
 `;
 

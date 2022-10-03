@@ -45,12 +45,7 @@ const Nav = () => {
         ))}
       </S.MenuContents>
       <S.NightDayHandlerWrapper>
-        <S.NightDayHandler
-          type="button"
-          onClick={() => {
-            changeToggleStatus();
-          }}
-        >
+        <S.NightDayHandler type="button" onClick={changeToggleStatus}>
           <S.ButtonContainer>
             <S.DayButton icon={faSun} $nightMode={nighMode} />
             <S.NightButton icon={faMoon} $nightMode={nighMode} />
