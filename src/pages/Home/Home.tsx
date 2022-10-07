@@ -20,7 +20,6 @@ const HomeSection = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10rem;
 `;
 
 const HomtTitle = styled.h1`

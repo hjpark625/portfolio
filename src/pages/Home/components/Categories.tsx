@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import * as S from './styles/Categories.styled';
 
 interface ToggleValue {
   toggle: { toggle: boolean };
@@ -13,13 +12,13 @@ const Categories = () => {
     <>
       {CATEGORIES_DATA.map(
         ({ id, title, img_url, img_alt, description, path }) => (
-          <CustomLink key={id} to={path}>
-            <CategoryBox isNight={isNight}>
-              <CategoryTitle>{title}</CategoryTitle>
-              <CategoryImg src={img_url} alt={img_alt} />
-              <CategoryDesc>{description}</CategoryDesc>
-            </CategoryBox>
-          </CustomLink>
+          <S.CustomLink key={id} to={path}>
+            <S.CategoryBox isNight={isNight}>
+              <S.CategoryTitle>{title}</S.CategoryTitle>
+              <S.CategoryImg src={img_url} alt={img_alt} />
+              <S.CategoryDesc>{description}</S.CategoryDesc>
+            </S.CategoryBox>
+          </S.CustomLink>
         ),
       )}
     </>
@@ -57,42 +56,3 @@ const CATEGORIES_DATA = [
     path: '/portfolio',
   },
 ];
-
-const CustomLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`;
-
-const CategoryBox = styled.div<{ isNight: boolean }>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 300px;
-  height: 400px;
-  border-radius: 8px;
-  padding: 15px;
-  cursor: pointer;
-  transition-property: transform, box-shadow;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-  box-shadow: 0px 0px 8px ${({ isNight }) => (isNight ? 'white' : 'gray')};
-  :hover {
-    transform: scale(1.2);
-  }
-`;
-
-const CategoryTitle = styled.span`
-  font-size: 24px;
-  font-weight: bolder;
-`;
-
-const CategoryImg = styled.img`
-  border-radius: 8px;
-  width: 250px;
-  height: 250px;
-`;
-
-const CategoryDesc = styled.div`
-  font-size: 20px;
-`;
