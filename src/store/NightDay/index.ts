@@ -1,30 +1,18 @@
+import { createAction, createReducer } from '@reduxjs/toolkit';
+
 const TOGGLE = 'nav/TOGGLE';
 
-export interface IToggle {
-  toggle: boolean;
-}
+export const handleToggle = createAction(TOGGLE);
 
-export const handleToggle = () => ({ type: TOGGLE });
-
-const initialState: IToggle = {
-  toggle: false,
+const initialState = {
+  isNight: false,
 };
 
-interface ActionType {
-  type: string;
-  toggle: boolean;
-}
-
-const toggle = (state = initialState, action: ActionType) => {
-  switch (action.type) {
-    case TOGGLE:
-      return {
-        ...state,
-        toggle: !state.toggle,
-      };
-    default:
-      return state;
-  }
-};
+const toggle = createReducer(initialState, (builder) => {
+  builder.addCase(TOGGLE, (state) => ({
+    ...state,
+    isNight: !state.isNight,
+  }));
+});
 
 export default toggle;

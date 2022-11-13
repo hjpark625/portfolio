@@ -7,6 +7,7 @@ const ProfilePhotoWrapper = styled.div`
 const ProfilePhoto = styled.img`
   width: 300px;
   height: 300px;
+  border-radius: 8px;
 `;
 
 const InfoWrapper = styled.ul`

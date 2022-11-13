@@ -8,14 +8,12 @@ import Portfolio from './pages/Portfolio/Portfolio';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import GlobalStyle from './styles/GlobalStyle';
-import { IToggle } from './store/NightDay/index';
+import { RootState } from './store';
 import { lightTheme } from './styles/light';
 import { darkTheme } from './styles/dark';
 
 const Router = () => {
-  const toggleValue = useSelector(
-    (state: { toggle: IToggle }) => state.toggle.toggle,
-  );
+  const toggleValue = useSelector((state: RootState) => state.toggle.isNight);
 
   return (
     <ThemeProvider theme={!toggleValue ? lightTheme : darkTheme}>

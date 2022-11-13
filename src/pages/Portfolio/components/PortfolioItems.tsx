@@ -1,16 +1,13 @@
 import { useSelector } from 'react-redux';
 import * as S from './styles/PortfolioItems.styled';
-
-interface RootState {
-  toggle: { toggle: boolean };
-}
+import { RootState } from '../../../store';
 
 const PortfolioItems = () => {
   const preventContextMenu = (e: React.MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
   };
 
-  const isNight = useSelector((state: RootState) => state.toggle.toggle);
+  const isNight = useSelector((state: RootState) => state.toggle.isNight);
   return (
     <>
       {PORTFOLIO_DATA.map(
