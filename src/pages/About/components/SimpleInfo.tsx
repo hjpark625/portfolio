@@ -3,7 +3,10 @@ import * as S from './styles/SimpleInfo.styled';
 const SimpleInfo = () => {
   return (
     <S.ProfilePhotoWrapper>
-      <S.ProfilePhoto alt="프로필 사진" src="/images/profile.jpg" />
+      <S.ProfilePhoto
+        alt="프로필 사진"
+        src="https://frontyardposts.s3.ap-northeast-2.amazonaws.com/private/profile.jpeg"
+      />
 
       <S.InfoWrapper>
         <S.InfoTitle>Simple Infos about me</S.InfoTitle>

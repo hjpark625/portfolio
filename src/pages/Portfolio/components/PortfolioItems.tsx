@@ -85,7 +85,7 @@ const PORTFOLIO_DATA = [
   {
     id: 3,
     title: '34-2nd-Greeneeds-frontend',
-    img: '/images/portfolio/GREENEEDS(edit).gif',
+    img: 'https://frontyardposts.s3.ap-northeast-2.amazonaws.com/private/GREENEEDS(edit).gif',
     alt: 'Greeneeds',
     semi_title: '크라우드 펀딩사이트 Tumblbug을 모티브로 재구성한 프로젝트',
     description:
@@ -96,7 +96,7 @@ const PORTFOLIO_DATA = [
   {
     id: 4,
     title: '34-1st-Weneige-frontend',
-    img: '/images/portfolio/WENEIGE_EDIT.gif',
+    img: 'https://frontyardposts.s3.ap-northeast-2.amazonaws.com/private/WENEIGE_EDIT.gif',
     alt: 'Weneige',
     semi_title: '화장품사이트 Weneige를 모티브를 한 프로젝트',
     description:
